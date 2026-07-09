@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-<html lang='es' class="no-js">
+<html lang="es" class="no-js">
 
 <head>
-    <title>Asesorías deportivas</title>
+    <title>Aviso Legal - Asesorías Deportivas</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos básicos para que el texto sea legible en tu fondo oscuro */
+        .texto-legal {
+            color: #ebf1fa;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border-radius: 15px;
+        }
 
+        .texto-legal h1,
+        .texto-legal h2 {
+            color: #D4AF37;
+        }
 
+        .texto-legal p,
+        .texto-legal li {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="progress-bar" id="progressBar"></div>
     <canvas id="bg"></canvas>
     <header class="header">
         <div class="container">
@@ -27,46 +45,30 @@
     </header>
 
     <main>
-        <h1 id="quienes">¿Quienes Somos?</h1>
-        <div>
-            <p class="introduccion">
-                Somos una empresa apasionada por el deporte y el bienestar. Desde nuestros inicios, nos hemos
-                dedicado a ofrecer productos, servicios y experiencias que fomenten un estilo de vida activo
-                y saludable. Nuestro equipo combina conocimiento, innovación y compromiso para apoyar a deportistas
-                y aficionados en todas sus disciplinas. Creemos en la importancia del esfuerzo, la constancia
-                y la motivación, valores que reflejamos en cada proyecto y actividad que realizamos. Nos esforzamos
-                por estar siempre a la vanguardia, ofreciendo soluciones de calidad que conecten a nuestra comunidad
-                deportiva. En resumen, somos mucho más que una empresa: somos compañeros de todos aquellos que
-                buscan disfrutar y mejorar a través del deporte.
-            </p>
-        </div>
-        <div>
-            <h3 class="seleccion">Aquí te mostramos algunas imagenes de nuestras actividades y personal.</h3>
-            <div class="imagenes">
-                <div class="tarjeta">
-                    <img src="img/mas_personal.jpg" alt="Personal del equipo trabajando" title="imagen de personal"
-                        width="300" height="250" loading="lazy">
-                </div>
-                <div class="tarjeta">
-                    <img src="img/personal_del_centro_deportivo.webp" alt="Personal del centro deportivo"
-                        title="imagen de personal" width="300" height="250" loading="lazy">
-                </div>
-            </div>
-        </div>
+        <section class="texto-legal reveal">
+            <h1>Aviso Legal</h1>
+            <h2>1. Datos Identificativos</h2>
+            <p>En cumplimiento con el deber de información recogido en artículo 10 de la Ley 34/2002, de 11 de julio, de
+                Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSICE), se reflejan los
+                siguientes datos:</p>
+            <ul>
+                <li><strong>Titular:</strong> [TU NOMBRE COMPLETO O NOMBRE DE EMPRESA]</li>
+                <li><strong>NIF/CIF:</strong> [TU NIF O CIF]</li>
+                <li><strong>Dirección:</strong> Calle Albareda 14, Sevilla Capital (España)</li>
+                <li><strong>Correo electrónico:</strong> [TU EMAIL DE CONTACTO]</li>
+                <li><strong>Teléfono:</strong> 634 939 853</li>
+            </ul>
 
-        <div class="video-seccion">
-            <div class="tarjeta tarjeta--video">
-                <video width="560" height="315" controls preload="metadata">
-                    <source src="img/Video_Corporativo_Asesorias_Deportivas.mp4" type="video/mp4">
+            <h2>2. Uso del portal</h2>
+            <p>El acceso y/o uso de este portal atribuye la condición de USUARIO, que acepta los Términos de Uso aquí
+                reflejados. El usuario asume la responsabilidad del uso del portal y se compromete a hacer un uso
+                adecuado de los contenidos y servicios (como por ejemplo, el formulario de contacto).</p>
 
-                </video>
-            </div>
-        </div>
-
-
-
-
-
+            <h2>3. Propiedad Intelectual</h2>
+            <p>El titular por sí o como cesionario, es titular de todos los derechos de propiedad intelectual e
+                industrial de su página web, así como de los elementos contenidos en la misma (imágenes, sonido, audio,
+                vídeo, software o textos, marcas o logotipos). Todos los derechos reservados.</p>
+        </section>
     </main>
 
     <footer class="footer" id="contacto">
@@ -101,8 +103,9 @@
                     <li><a href="cookies.html" style="color: #000; text-decoration: none;">Política de Cookies</a></li>
                 </ul>
             </div>
-
         </div>
+
+
 
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>

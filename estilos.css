@@ -277,6 +277,14 @@ main {
 
 
 }
+#quienes {
+    margin-left: 75px;
+    font-family: 'Verdana', sans-serif;
+    color: #fdfbfb;
+    border: none;
+    font-size: 30px;
+
+}
 
 /* ============================================================
    servicios — Caja de servicios

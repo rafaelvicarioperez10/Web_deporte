@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang='es' class="no-js">
+<html lang="es" class="no-js">
 
 <head>
-    <title>Asesorías deportivas</title>
+    <title>Política de Privacidad - Asesorías Deportivas</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        .texto-legal {
+            color: #ebf1fa;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #1b1b1b;
+            border-radius: 15px;
+        }
 
+        .texto-legal h1,
+        .texto-legal h2 {
+            color: #D4AF37;
+        }
 
+        .texto-legal p,
+        .texto-legal li {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="progress-bar" id="progressBar"></div>
     <canvas id="bg"></canvas>
     <header class="header">
         <div class="container">
@@ -27,46 +44,32 @@
     </header>
 
     <main>
-        <h1 id="quienes">¿Quienes Somos?</h1>
-        <div>
-            <p class="introduccion">
-                Somos una empresa apasionada por el deporte y el bienestar. Desde nuestros inicios, nos hemos
-                dedicado a ofrecer productos, servicios y experiencias que fomenten un estilo de vida activo
-                y saludable. Nuestro equipo combina conocimiento, innovación y compromiso para apoyar a deportistas
-                y aficionados en todas sus disciplinas. Creemos en la importancia del esfuerzo, la constancia
-                y la motivación, valores que reflejamos en cada proyecto y actividad que realizamos. Nos esforzamos
-                por estar siempre a la vanguardia, ofreciendo soluciones de calidad que conecten a nuestra comunidad
-                deportiva. En resumen, somos mucho más que una empresa: somos compañeros de todos aquellos que
-                buscan disfrutar y mejorar a través del deporte.
-            </p>
-        </div>
-        <div>
-            <h3 class="seleccion">Aquí te mostramos algunas imagenes de nuestras actividades y personal.</h3>
-            <div class="imagenes">
-                <div class="tarjeta">
-                    <img src="img/mas_personal.jpg" alt="Personal del equipo trabajando" title="imagen de personal"
-                        width="300" height="250" loading="lazy">
-                </div>
-                <div class="tarjeta">
-                    <img src="img/personal_del_centro_deportivo.webp" alt="Personal del centro deportivo"
-                        title="imagen de personal" width="300" height="250" loading="lazy">
-                </div>
-            </div>
-        </div>
+        <section class="texto-legal reveal">
+            <h1>Política de Privacidad</h1>
+            <p>De conformidad con lo dispuesto en el Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 de
+                Protección de Datos Personales (LOPDGDD), te informamos de lo siguiente:</p>
 
-        <div class="video-seccion">
-            <div class="tarjeta tarjeta--video">
-                <video width="560" height="315" controls preload="metadata">
-                    <source src="img/Video_Corporativo_Asesorias_Deportivas.mp4" type="video/mp4">
+            <h2>1. Responsable del Tratamiento</h2>
+            <p>El responsable del tratamiento de los datos recabados en esta web es [TU NOMBRE COMPLETO], con correo
+                electrónico: [TU EMAIL].</p>
 
-                </video>
-            </div>
-        </div>
+            <h2>2. Finalidad del tratamiento</h2>
+            <p>Los datos personales (nombre, email, teléfono, deporte practicado) recogidos a través del formulario de
+                contacto se utilizarán exclusivamente para:</p>
+            <ul>
+                <li>Responder a tus consultas y solicitudes de información.</li>
+                <li>Ofrecerte asesoramiento deportivo y planes personalizados solicitados.</li>
+            </ul>
 
+            <h2>3. Legitimación y Conservación</h2>
+            <p>La base legal para el tratamiento de tus datos es tu consentimiento expreso, otorgado al aceptar esta
+                política antes de enviar el formulario. Los datos se conservarán mientras se mantenga la relación
+                comercial o hasta que solicites su supresión.</p>
 
-
-
-
+            <h2>4. Derechos del usuario</h2>
+            <p>Puedes ejercer tus derechos de Acceso, Rectificación, Supresión, Limitación, Portabilidad y Oposición
+                enviando un correo electrónico a [TU EMAIL], adjuntando una copia de tu DNI para identificarte.</p>
+        </section>
     </main>
 
     <footer class="footer" id="contacto">
@@ -101,8 +104,9 @@
                     <li><a href="cookies.html" style="color: #000; text-decoration: none;">Política de Cookies</a></li>
                 </ul>
             </div>
-
         </div>
+
+
 
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
