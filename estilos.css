@@ -123,9 +123,10 @@ main {
 
 #portada {
     font-family: 'Impact', sans-serif;
-    font-size: 60px;
+    font-size: clamp(30px, 5vw, 60px);
     color: #ebf1fa;
-    margin-left: 500px;
+    text-align: center;
+    margin: 20px 0;
 }
 
 /* ============================================================
@@ -158,51 +159,35 @@ main {
 /* ============================================================
    .INTRODUCCION — Bloque de introducción
    ============================================================ */
-.introduccion {
-    color: #ebf1fa;
-    max-width: 1000px;
-    margin-top: 400px;
-    margin-left: 100px;
-    margin-right: 100px;
-    line-height: 1.6;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 15px;
-    word-spacing: 10px;
-}
-
+.introduccion,
 .introduccion2 {
     color: #ebf1fa;
     max-width: 1000px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin: 60px auto;
+    padding: 0 20px;
     line-height: 1.6;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 15px;
-    word-spacing: 10px;
-
+    word-spacing: 5px;
+    text-align: center;
 }
 
 /* ============================================================
    .NOTA — Caja de nota
    ============================================================ */
 .nota {
-    display: inline-block;
-    margin-left: 500px;
+
+    display: block;
+    max-width: 300px;
+    margin: 20px auto;
     color: #ebf1fa;
     border-radius: 10px;
     border-color: #2D3748;
     background-color: #2D3748;
-    background-size: 40px;
-    padding: 5px 10px;
-    position: absolute;
-    top: 500px;
-    right: 200px;
+    padding: 10px 15px;
+    text-align: center;
 }
-
 
 
 /* ============================================================
@@ -346,17 +331,21 @@ main {
 /* ============================================================
    TABLA — Estilos de tablas
    ============================================================ */
-   .centrado span {
-    
-    margin-left: 400px;
-    
-    
-    }
-    .centrado span:hover {
+.centrado span {
+    /* Quitado el margin-left: 400px */
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.centrado {
+    text-align: center;
+}
+
+.centrado span:hover {
     background-color: #3a3a3a;
     box-shadow: 0 0 15px #272727;
     cursor: pointer;
-    }
+}
 
 table {
     width: auto;
@@ -365,15 +354,15 @@ table {
     margin-top: 20px;
     color: white;
     background-color: #1b1b1b;
-    
+
 }
 
 table,
 tr,
 td,
 th {
-    
-    
+
+
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 10px;
 }
@@ -412,17 +401,6 @@ tr:hover td {
 
 
 
-
-
-
-
-
-
-/* ============================================================
-   .TITULOS — Barra de título de sección
-   ============================================================ */
-
-
 /* ============================================================
    .seleccion — Barra de selección de sección
    ============================================================ */
@@ -443,34 +421,42 @@ tr:hover td {
    ============================================================ */
 
 
-fieldset {
 
-    width: 30%;
-    /*margin: 60px auto;
-    equivalente a 
-     margin-top:60px;
-     margin-bottom:60px;
-     margin-left:auto;
-     margin-right:auto;
-    */
+form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la línea inferior si no caben */
+    justify-content: center; /* Centra los fieldsets horizontalmente */
+    align-items: flex-start; /* Alinea arriba para que no se estiren raro */
+    gap: 30px; /* Espacio entre los bloques */
+    width: 95%;
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+fieldset {
+    width: 100%;
+    max-width: 350px; /* Limita el ancho máximo para que queden lado a lado en PC */
     padding: 20px;
     background-color: #1b1b1b;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+    border: none; /* Mejor estética */
 }
 
-fieldset.izquierda {
-    position: relative;
-    left: 150px;
-}
-fieldset.derecha {
-    position: relative;
-    left: 1000px;
-}
 
+fieldset.izquierda,
+fieldset.derecha,
 fieldset.centro {
-    position: relative;
-    left: 500px;
+    position: static;
+    left: auto;
+}
+
+/* Nota dentro del formulario */
+.nota2 {
+    width: 100%; /* Ocupa el 100% para forzar salto de línea si es necesario */
+    text-align: center;
+    color: #D4AF37;
+    margin: 10px 0;
 }
 
 fieldset legend {
@@ -531,6 +517,7 @@ fieldset input[type="reset"]:hover {
     background-color: #c79d22;
     /*cuando pasas el ratón por encima cambia a un dorado mas oscuro*/
 }
+
 /* Contenedor de la galería de imágenes */
 .imagenes {
     display: flex;
@@ -565,7 +552,8 @@ fieldset input[type="reset"]:hover {
 .tarjeta:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
-    border-color: rgba(6, 214, 214, 0.6); /* cian: cámbialo si ya tienes un acento definido en tu sistema de diseño */
+    border-color: rgba(6, 214, 214, 0.6);
+    /* cian: cámbialo si ya tienes un acento definido en tu sistema de diseño */
 }
 
 .tarjeta img {
@@ -596,5 +584,74 @@ fieldset input[type="reset"]:hover {
 
     .tarjeta:hover {
         transform: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ============================================================
+   DISEÑO RESPONSIVE CORREGIDO (Teniendo en cuenta capucha.css)
+   ============================================================ */
+
+@media screen and (max-width: 850px) {
+    /* Header y Navegación (Como es fixed, vigilar el espacio) */
+    .header .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .nav-menu {
+        margin-left: 0;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 100%;
+    }
+
+    /* Ajuste de botones principales */
+    #deporte, .servicios {
+        margin-left: 0;
+        display: block;
+        text-align: center;
+        width: fit-content;
+        margin: 20px auto;
+    }
+
+    /* CORRECCIÓN: Separamos .seleccion para que no se meta debajo del menú fixed */
+    .seleccion {
+        display: block;
+        text-align: center;
+        width: fit-content;
+        /* Le damos un margen superior generoso (180px) porque el menú vertical fixed 
+           ahora ocupa mucho más espacio libre en la zona de arriba */
+        margin: 180px auto 20px auto; 
+    }
+
+    /* El formulario pasa a ser una sola columna */
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    fieldset {
+        max-width: 90%; 
+    }
+
+    /* Ajuste de tablas para que no rompan el ancho */
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        width: 95%;
     }
 }

@@ -44,20 +44,4 @@ body {
 .seleccion{
     margin-top: 100px;
 }
-.nota2 {
-    display: block;          /* Cambiado a block para que los márgenes auto funcionen correctamente */
-    width: fit-content;      /* Hace que la caja se adapte al tamaño del texto y no ocupe toda la pantalla */
-    
-    /* Posicionamiento */
-    margin-top: -550px;       /* Controla qué tan "bastante debajo" del nav aparece. Puedes subir o bajar este número */
-    margin-left: auto;       /* Empuja la caja completamente hacia la derecha */
-    margin-right: 150px;     /* Distancia de separación respecto al borde derecho de la pantalla */
-    margin-bottom: 500px;     /* Separación con los elementos que vienen después (el título H1) */
 
-    /* Estilos visuales */
-    color: #ebf1fa;
-    border-radius: 10px;
-    border: 1px solid #2D3748;
-    background-color: #2D3748;
-    padding: 10px 20px;
-}
