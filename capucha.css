@@ -1,0 +1,63 @@
+.pagina-capucha .hoodie-intro {
+    position: relative;
+    height: 150vh;
+
+
+}
+
+.pagina-capucha canvas#bg {
+    position: sticky;
+    top: 0;
+    width: 100vh;
+    height: 150vh;
+    display: block;
+    z-index: 0;
+}
+
+.pagina-capucha #blackout {
+    position: sticky;
+    top: 0;
+    height: 150vh;
+    margin-top: -100vh;
+    background: #000;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.header {
+    background-color: rgb(23, 22, 22);
+    color: white;
+    padding: 1rem 0;
+    position: fixed; /* <--- Cambiado de sticky a fixed */
+    top: 0;
+    left: 0;         /* <--- Ancla el menú al borde izquierdo */
+    width: 100%;     /* <--- Asegura que ocupe todo el ancho de la pantalla */
+    z-index: 1000;   /* <--- Valor alto para asegurar que el canvas 3D no lo tape */
+    opacity: 0.95;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body {
+    overflow-x: hidden; /* Evita el desplazamiento horizontal */
+}
+
+.seleccion{
+    margin-top: 100px;
+}
+.nota2 {
+    display: block;          /* Cambiado a block para que los márgenes auto funcionen correctamente */
+    width: fit-content;      /* Hace que la caja se adapte al tamaño del texto y no ocupe toda la pantalla */
+    
+    /* Posicionamiento */
+    margin-top: -550px;       /* Controla qué tan "bastante debajo" del nav aparece. Puedes subir o bajar este número */
+    margin-left: auto;       /* Empuja la caja completamente hacia la derecha */
+    margin-right: 150px;     /* Distancia de separación respecto al borde derecho de la pantalla */
+    margin-bottom: 500px;     /* Separación con los elementos que vienen después (el título H1) */
+
+    /* Estilos visuales */
+    color: #ebf1fa;
+    border-radius: 10px;
+    border: 1px solid #2D3748;
+    background-color: #2D3748;
+    padding: 10px 20px;
+}

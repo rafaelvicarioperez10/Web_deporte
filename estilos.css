@@ -1,0 +1,600 @@
+/* ============================================================
+   RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   BODY
+   ============================================================ */
+body {
+
+    background-color: #000;
+    margin: 0;
+    position: relative;
+    font-family: 'Verdana', sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+canvas#bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    /* importante: -1, no 0, para que quede DETRÁS del contenido actual */
+    display: block;
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ffb627, #00c2cb);
+    z-index: 50;
+    width: 0%;
+}
+
+/* ============================================================
+   reveal — Animación de aparición
+   ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.no-js .reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.header {
+    background-color: rgb(23, 22, 22);
+    color: white;
+    padding: 1rem 0;
+    position: sticky;
+    opacity: 0.95;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header .container {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+main {
+    flex: 1;
+}
+
+/* ============================================================
+   NAV — Navegación
+   ============================================================ */
+.nav-menu {
+    margin-left: auto;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: #D4AF37;
+    color: black;
+}
+
+#portada {
+    font-family: 'Impact', sans-serif;
+    font-size: 60px;
+    color: #ebf1fa;
+    margin-left: 500px;
+}
+
+/* ============================================================
+   #INICIO — Sección principal
+   ============================================================ */
+#inicio {
+    margin-left: 75px;
+    color: #ebf1fa;
+    border: none;
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   #DEPORTE — Sección deportes
+   ============================================================ */
+#deporte {
+    display: inline-block;
+    margin-left: 70px;
+    margin-top: 50px;
+    color: #ebf1fa;
+    border-radius: 10px;
+    border-color: #2D3748;
+    background-color: #2D3748;
+    background-size: 30px;
+    padding: 5px 10px;
+
+}
+
+/* ============================================================
+   .INTRODUCCION — Bloque de introducción
+   ============================================================ */
+.introduccion {
+    color: #ebf1fa;
+    max-width: 1000px;
+    margin-top: 400px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.6;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    word-spacing: 10px;
+}
+
+.introduccion2 {
+    color: #ebf1fa;
+    max-width: 1000px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    line-height: 1.6;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px;
+    word-spacing: 10px;
+
+}
+
+/* ============================================================
+   .NOTA — Caja de nota
+   ============================================================ */
+.nota {
+    display: inline-block;
+    margin-left: 500px;
+    color: #ebf1fa;
+    border-radius: 10px;
+    border-color: #2D3748;
+    background-color: #2D3748;
+    background-size: 40px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 500px;
+    right: 200px;
+}
+
+
+
+/* ============================================================
+   informacion — Caja de información
+   ============================================================ */
+.informacion {
+    width: 550px;
+    margin: 300px auto;
+    /*equivalente a 
+     margin-top:60px;
+     margin-bottom:60px;
+     margin-left:auto;
+     margin-right:auto;
+    */
+    padding: 30px;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+.informacion h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.informacion label {
+    display: block;
+    /*cada etiqueta ocupa una linea completa*/
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+.informacion input,
+.informacion textarea,
+.informacion select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #2b2b2b;
+    color: white;
+    box-sizing: border-box;
+}
+
+.informacion textarea {
+    resize: none;
+    /*quita el controlador de redimensionamiento, aparecería para poder agrandarlo*/
+}
+
+.informacion input[type="submit"],
+.informacion input[type="reset"] {
+    width: auto;
+    margin-top: 20px;
+    padding: 12px 25px;
+    /*12 (arriba y abajo), 25 (izquierda y derecha)*/
+    background-color: #D4AF37;
+    color: black;
+    border: none;
+    cursor: pointer;
+    /*pasas el cursor y aparece la mano */
+    font-weight: bold;
+    /*texto en negrita*/
+    transition: .3s;
+    /* animación tardará 0.3 segundos */
+}
+
+.informacion input[type="submit"]:hover,
+.informacion input[type="reset"]:hover {
+    background-color: #c79d22;
+    /*cuando pasas el ratón por encima cambia a un dorado mas oscuro*/
+}
+
+
+
+/* ============================================================
+   #productos — Caja de productos
+   ============================================================ */
+#productos {
+    margin-left: 75px;
+    font-family: 'Verdana', sans-serif;
+    color: #fdfbfb;
+    border: none;
+    font-size: 30px;
+
+
+}
+
+/* ============================================================
+   servicios — Caja de servicios
+   ============================================================ */
+.servicios {
+    margin-left: 75px;
+    font-family: 'Verdana', sans-serif;
+    color: #ebf1fa;
+    border: none;
+    font-size: 18px;
+
+
+}
+
+.servicios summary {
+    display: inline-block;
+    /*ocupa el espacio necesario */
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 5px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.servicios summary:hover {
+    background-color: #D4AF37;
+    color: black;
+}
+
+
+
+.servicios span {
+    display: inline-block;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.servicios span:hover {
+    background-color: #007bff;
+    box-shadow: 0 0 15px #007bff;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   TABLA — Estilos de tablas
+   ============================================================ */
+   .centrado span {
+    
+    margin-left: 400px;
+    
+    
+    }
+    .centrado span:hover {
+    background-color: #3a3a3a;
+    box-shadow: 0 0 15px #272727;
+    cursor: pointer;
+    }
+
+table {
+    width: auto;
+    margin: 20px auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+    color: white;
+    background-color: #1b1b1b;
+    
+}
+
+table,
+tr,
+td,
+th {
+    
+    
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px;
+}
+
+tr:hover td {
+    background-color: #011363;
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+
+    width: 100%;
+    height: auto;
+    background-color: #fefcfc;
+    color: #070000;
+    padding: 5px 0;
+    margin-top: 50%;
+
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   .TITULOS — Barra de título de sección
+   ============================================================ */
+
+
+/* ============================================================
+   .seleccion — Barra de selección de sección
+   ============================================================ */
+.seleccion {
+    display: inline-block;
+    color: #ebf1fa;
+    font-family: 'Garamond', sans-serif;
+    font-size: 30px;
+    margin-left: 75px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border-color: #2D3748;
+    background-color: #2D3748;
+}
+
+/* ============================================================
+   FIELDSET -- Estilos de formulario
+   ============================================================ */
+
+
+fieldset {
+
+    width: 30%;
+    /*margin: 60px auto;
+    equivalente a 
+     margin-top:60px;
+     margin-bottom:60px;
+     margin-left:auto;
+     margin-right:auto;
+    */
+    padding: 20px;
+    background-color: #1b1b1b;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+}
+
+fieldset.izquierda {
+    position: relative;
+    left: 150px;
+}
+fieldset.derecha {
+    position: relative;
+    left: 1000px;
+}
+
+fieldset.centro {
+    position: relative;
+    left: 500px;
+}
+
+fieldset legend {
+
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+
+
+fieldset label {
+    display: block;
+    /*cada etiqueta ocupa una linea completa*/
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 17px;
+}
+
+fieldset input,
+fieldset textarea,
+fieldset select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background-color: #2b2b2b;
+    color: white;
+    box-sizing: border-box;
+}
+
+fieldset textarea {
+    resize: none;
+    /*quita el controlador de redimensionamiento, aparecería para poder agrandarlo*/
+}
+
+fieldset input[type="submit"],
+fieldset input[type="reset"] {
+    width: auto;
+    margin-top: 20px;
+    padding: 12px 25px;
+    /*12 (arriba y abajo), 25 (izquierda y derecha)*/
+    background-color: #D4AF37;
+    color: black;
+    border: none;
+    cursor: pointer;
+    /*pasas el cursor y aparece la mano */
+    font-weight: bold;
+    /*texto en negrita*/
+    transition: .3s;
+    /* animación tardará 0.3 segundos */
+}
+
+fieldset input[type="submit"]:hover,
+fieldset input[type="reset"]:hover {
+    background-color: #c79d22;
+    /*cuando pasas el ratón por encima cambia a un dorado mas oscuro*/
+}
+/* Contenedor de la galería de imágenes */
+.imagenes {
+    display: flex;
+    /*se colocan en fila*/
+    flex-wrap: wrap;
+    justify-content: center;
+    /*centra horizontalmente*/
+    gap: 2rem;
+    /*espacio entre tarjetas*/
+    margin: 2.5rem 0;
+}
+
+.video-seccion {
+    display: flex;
+    justify-content: center;
+    margin: 2.5rem 0;
+}
+
+/* Caja reutilizable para imágenes y vídeo */
+.tarjeta {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #111;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(6, 214, 214, 0.6); /* cian: cámbialo si ya tienes un acento definido en tu sistema de diseño */
+}
+
+.tarjeta img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 6 / 5;
+    object-fit: cover;
+}
+
+.tarjeta--video {
+    max-width: 800px;
+}
+
+.tarjeta--video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    background: #000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tarjeta {
+        transition: none;
+    }
+
+    .tarjeta:hover {
+        transform: none;
+    }
+}
