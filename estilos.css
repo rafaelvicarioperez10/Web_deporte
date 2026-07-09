@@ -278,6 +278,7 @@ main {
 
 
 }
+
 #quienes {
     margin-left: 75px;
     font-family: 'Verdana', sans-serif;
@@ -433,10 +434,14 @@ tr:hover td {
 
 form {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos pasen a la línea inferior si no caben */
-    justify-content: center; /* Centra los fieldsets horizontalmente */
-    align-items: flex-start; /* Alinea arriba para que no se estiren raro */
-    gap: 30px; /* Espacio entre los bloques */
+    flex-wrap: wrap;
+    /* Permite que los elementos pasen a la línea inferior si no caben */
+    justify-content: center;
+    /* Centra los fieldsets horizontalmente */
+    align-items: flex-start;
+    /* Alinea arriba para que no se estiren raro */
+    gap: 30px;
+    /* Espacio entre los bloques */
     width: 95%;
     max-width: 1200px;
     margin: 40px auto;
@@ -444,12 +449,14 @@ form {
 
 fieldset {
     width: 100%;
-    max-width: 350px; /* Limita el ancho máximo para que queden lado a lado en PC */
+    max-width: 350px;
+    /* Limita el ancho máximo para que queden lado a lado en PC */
     padding: 20px;
     background-color: #1b1b1b;
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, .5);
-    border: none; /* Mejor estética */
+    border: none;
+    /* Mejor estética */
 }
 
 
@@ -462,7 +469,8 @@ fieldset.centro {
 
 /* Nota dentro del formulario */
 .nota2 {
-    width: 100%; /* Ocupa el 100% para forzar salto de línea si es necesario */
+    width: 100%;
+    /* Ocupa el 100% para forzar salto de línea si es necesario */
     text-align: center;
     color: #D4AF37;
     margin: 10px 0;
@@ -586,6 +594,9 @@ fieldset input[type="reset"]:hover {
     background: #000;
 }
 
+
+
+
 @media (prefers-reduced-motion: reduce) {
     .tarjeta {
         transition: none;
@@ -595,6 +606,7 @@ fieldset input[type="reset"]:hover {
         transform: none;
     }
 }
+
 @media (prefers-reduced-motion: reduce) {
     .reveal {
         opacity: 1;
@@ -603,7 +615,7 @@ fieldset input[type="reset"]:hover {
 }
 
 /* ============================================================
-   DISEÑO RESPONSIVE CORREGIDO (Teniendo en cuenta capucha.css)
+   DISEÑO RESPONSIVE 
    ============================================================ */
 
 /* --- CORRECCIONES PARA MÓVILES (Responsive Global) --- */
@@ -611,45 +623,64 @@ fieldset input[type="reset"]:hover {
 /* --- DISEÑO RESPONSIVE FINAL Y UNIFICADO --- */
 
 @media screen and (max-width: 850px) {
-    /* 1. Ajustes globales para evitar desbordamientos */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    /* 2. Header y Menú (el error del nav gigante) */
-    .header {
-        position: relative !important;
-        height: auto !important;
-        padding: 10px 0;
+    /* Header y Navegación (Como es fixed, vigilar el espacio) */
+    .header .container {
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .nav-menu {
+        padding: 0;
+        margin-left: 0;
+        margin-top: 15px;
+        display: flex;
         flex-direction: column;
         gap: 10px;
-        padding: 10px;
-        margin-left: 0;
+        text-align: center;
     }
 
-    /* 3. Ajuste de textos */
-    h1 { font-size: 1.5rem !important; }
-    h2 { font-size: 1.2rem !important; }
-
-    /* 4. Formularios y tablas adaptables */
-    form input, form textarea, form select, table {
-        width: 90% !important;
-        margin: 5px auto !important;
+    .nav-menu a {
+        padding: 0;
+        font-size: 10px;
         display: block;
+        width: 100%;
     }
 
+    /* Ajuste de botones principales */
+    #deporte, .servicios {
+        margin-left: 0;
+        display: block;
+        text-align: center;
+        width: fit-content;
+        margin: 20px auto;
+    }
+
+    /* CORRECCIÓN: Separamos .seleccion para que no se meta debajo del menú fixed */
+    .seleccion {
+        display: block;
+        text-align: center;
+        width: fit-content;
+        /* Le damos un margen superior generoso (180px) porque el menú vertical fixed 
+           ahora ocupa mucho más espacio libre en la zona de arriba */
+        margin: 180px auto 20px auto; 
+    }
+
+    /* El formulario pasa a ser una sola columna */
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    fieldset {
+        max-width: 90%; 
+    }
+
+    /* Ajuste de tablas para que no rompan el ancho */
     table {
         display: block;
         overflow-x: auto;
-    }
-
-    /* 5. Asegurar que el canvas no estorbe */
-    canvas#bg {
-        height: 100vh !important;
-        position: fixed !important;
+        white-space: nowrap;
+        width: 95%;
     }
 }
