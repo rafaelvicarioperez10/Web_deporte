@@ -5,6 +5,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 
@@ -605,61 +606,43 @@ fieldset input[type="reset"]:hover {
    DISEÑO RESPONSIVE CORREGIDO (Teniendo en cuenta capucha.css)
    ============================================================ */
 
-@media screen and (max-width: 850px) {
-    /* Header y Navegación (Como es fixed, vigilar el espacio) */
-    .header .container {
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .nav-menu {
-        margin-left: 0;
-        margin-top: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
+/* --- CORRECCIONES PARA MÓVILES (Responsive Global) --- */
 
-    .nav-menu a {
-        display: block;
+@media (max-width: 768px) {
+    /* 1. Evitar que cualquier elemento sea más ancho que la pantalla */
+    html, body {
+        overflow-x: hidden;
         width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
-    /* Ajuste de botones principales */
-    #deporte, .servicios {
-        margin-left: 0;
+    /* 2. Hacer que todos los inputs y botones sean adaptables */
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="tel"],
+    form select,
+    form textarea {
+        width: 90%;          /* Ocupa el 90% del contenedor */
+        max-width: 400px;    /* Pero no más de 400px */
+        margin: 10px auto;   /* Centrado */
         display: block;
-        text-align: center;
-        width: fit-content;
-        margin: 20px auto;
     }
 
-    /* CORRECCIÓN: Separamos .seleccion para que no se meta debajo del menú fixed */
-    .seleccion {
-        display: block;
-        text-align: center;
-        width: fit-content;
-        /* Le damos un margen superior generoso (180px) porque el menú vertical fixed 
-           ahora ocupa mucho más espacio libre en la zona de arriba */
-        margin: 180px auto 20px auto; 
+    /* 3. Ajustar botones */
+    input[type="submit"], 
+    input[type="reset"] {
+        width: 90%;
+        max-width: 400px;
+        margin: 10px auto;
+        padding: 15px;
     }
 
-    /* El formulario pasa a ser una sola columna */
-    form {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    fieldset {
-        max-width: 90%; 
-    }
-
-    /* Ajuste de tablas para que no rompan el ancho */
+    /* 4. Asegurar que las tablas (si usas en productos.html) no rompan el diseño */
     table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
-        width: 95%;
+        width: 100%;
     }
 }
