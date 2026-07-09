@@ -608,41 +608,48 @@ fieldset input[type="reset"]:hover {
 
 /* --- CORRECCIONES PARA MÓVILES (Responsive Global) --- */
 
-@media (max-width: 768px) {
-    /* 1. Evitar que cualquier elemento sea más ancho que la pantalla */
+/* --- DISEÑO RESPONSIVE FINAL Y UNIFICADO --- */
+
+@media screen and (max-width: 850px) {
+    /* 1. Ajustes globales para evitar desbordamientos */
     html, body {
         overflow-x: hidden;
         width: 100%;
-        margin: 0;
-        padding: 0;
     }
 
-    /* 2. Hacer que todos los inputs y botones sean adaptables */
-    form input[type="text"],
-    form input[type="email"],
-    form input[type="tel"],
-    form select,
-    form textarea {
-        width: 90%;          /* Ocupa el 90% del contenedor */
-        max-width: 400px;    /* Pero no más de 400px */
-        margin: 10px auto;   /* Centrado */
+    /* 2. Header y Menú (el error del nav gigante) */
+    .header {
+        position: relative !important;
+        height: auto !important;
+        padding: 10px 0;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        margin-left: 0;
+    }
+
+    /* 3. Ajuste de textos */
+    h1 { font-size: 1.5rem !important; }
+    h2 { font-size: 1.2rem !important; }
+
+    /* 4. Formularios y tablas adaptables */
+    form input, form textarea, form select, table {
+        width: 90% !important;
+        margin: 5px auto !important;
         display: block;
     }
 
-    /* 3. Ajustar botones */
-    input[type="submit"], 
-    input[type="reset"] {
-        width: 90%;
-        max-width: 400px;
-        margin: 10px auto;
-        padding: 15px;
-    }
-
-    /* 4. Asegurar que las tablas (si usas en productos.html) no rompan el diseño */
     table {
         display: block;
         overflow-x: auto;
-        white-space: nowrap;
-        width: 100%;
+    }
+
+    /* 5. Asegurar que el canvas no estorbe */
+    canvas#bg {
+        height: 100vh !important;
+        position: fixed !important;
     }
 }
