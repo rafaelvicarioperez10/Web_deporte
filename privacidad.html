@@ -32,14 +32,19 @@
     <canvas id="bg"></canvas>
     <header class="header">
         <div class="container">
-            <nav class="nav-menu">
-                <a href="index.html">Inicio</a>
-                <a href="quienes.html">¿Quiénes somos?</a>
-                <a href="productos.html">Productos y servicios</a>
-                <a href="#contacto">Contacto</a>
-                <a href="trabaja.html">Trabaja con nosotros</a>
+               <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="index.html">Inicio</a>
+                    <a href="quienes.html">¿Quiénes somos?</a>
+                    <a href="productos.html">Productos y servicios</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="trabaja.html">Trabaja con nosotros</a>
 
-            </nav>
+                </nav>
         </div>
     </header>
 
@@ -112,6 +117,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+     <script>
+        const menuToggle = document.querySelector('#mobile-menu');
+        const navMenu = document.querySelector('#nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            // Alterna las clases para desplegar el menú y hacer la animación de la 'X'
+            menuToggle.classList.toggle('is-active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
     <script src="scroll3D.js"></script>
 </body>
 

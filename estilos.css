@@ -102,8 +102,15 @@ main {
 /* ============================================================
    NAV — Navegación
    ============================================================ */
+/*.nav-menu {
+    margin-left: auto;
+}*/
 .nav-menu {
     margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .nav-menu a {
@@ -381,14 +388,6 @@ tr:hover td {
     background-color: #011363;
 }
 
-
-
-
-
-
-
-
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -593,8 +592,30 @@ fieldset input[type="reset"]:hover {
     object-fit: contain;
     background: #000;
 }
+/* ============================================================
+   MENÚ HAMBURGUESA (Oculto en PC por defecto)
+   ============================================================ */
+.menu-toggle {
+    display: none; /* <--- Esto hace que no se vea en PC */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1000;
+}
 
+.menu-toggle .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #ebf1fa;
+    transition: all 0.3s ease;
+}
 
+/* Tu menú normal horizontal para pantallas grandes */
+.nav-menu {
+    margin-left: auto;
+    display: flex;
+    gap: 5px;
+}
 
 
 @media (prefers-reduced-motion: reduce) {
@@ -623,32 +644,96 @@ fieldset input[type="reset"]:hover {
 /* --- DISEÑO RESPONSIVE FINAL Y UNIFICADO --- */
 
 @media screen and (max-width: 850px) {
-    /* Header y Navegación (Como es fixed, vigilar el espacio) */
-    .header .container {
-        padding: 0;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .nav-menu {
-        padding: 0;
-        margin-left: 0;
-        margin-top: 15px;
+.header .container {
+        padding: 0 20px;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .nav-menu a {
-        padding: 0;
-        font-size: 10px;
-        display: block;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
     }
 
+    /* HACE APARECER LAS RAYAS EN DISPOSITIVOS MÓVILES E IPADS */
+    .menu-toggle {
+        display: flex; 
+        position: relative;
+    }
+
+    /* Transforma el menú en un panel lateral oculto a la derecha (-100%) */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Fuera de la pantalla */
+        width: 280px; /* Ancho cómodo para el lateral en iPad y móviles */
+        height: 100vh;
+        background-color: rgb(23, 22, 22);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        margin: 0;
+    }
+
+    /* Clase que añade JavaScript al hacer clic para mostrar el menú */
+    .nav-menu.active {
+        right: 0; 
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        padding: 12px;
+        width: 80%;
+        text-align: center;
+        display: block;
+    }
+
+    /* Animación para convertir las rayas en una 'X' al abrirse */
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+ 
+    /* --- MENÚ EN UNA SOLA LÍNEA (FORZADO SIN SCROLL) --- */
+   /* .header {
+        padding: 5px 0; /* Reducimos el padding superior e inferior de la cabecera 
+    }
+
+    .header .container {
+        width: 100%;
+        padding: 0; 
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: nowrap; /* Prohíbe terminantemente que bajen a una segunda línea 
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 2px; /* Espacio diminuto entre los botones 
+    }
+
+    .nav-menu a {
+        font-size: 7px; /* Letra muy pequeña para que quepa todo el texto 
+        padding: 4px 3px; /* Padding mínimo para que no ocupen a lo ancho 
+        white-space: nowrap; /* Prohíbe que el texto de un enlace se parta por la mitad 
+        margin-left: 0; /* Anula el margen del diseño original de PC 
+    }*/
+
     /* Ajuste de botones principales */
-    #deporte, .servicios {
+    #deporte,
+    .servicios {
         margin-left: 0;
         display: block;
         text-align: center;
@@ -660,27 +745,55 @@ fieldset input[type="reset"]:hover {
     .seleccion {
         display: block;
         text-align: center;
-        width: fit-content;
+        width: 70%;
+       font-size:15px;
         /* Le damos un margen superior generoso (180px) porque el menú vertical fixed 
            ahora ocupa mucho más espacio libre en la zona de arriba */
-        margin: 180px auto 20px auto; 
+        margin: 180px auto 20px auto;
     }
 
     /* El formulario pasa a ser una sola columna */
-    form {
-        flex-direction: column;
-        align-items: center;
-    }
+   .informacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    max-width: 500px;
+    font-size: 14px;
+    padding: 1%;
+}
+
 
     fieldset {
-        max-width: 90%; 
+        max-width: 90%;
     }
 
     /* Ajuste de tablas para que no rompan el ancho */
-    table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-        width: 95%;
-    }
+   table {
+    width: 95%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    font-size: 13px;
 }
+
+th,
+td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.imagenes{
+    width: 30%;
+   margin-left:35%;
+  
+}
+
+.video-seccion {
+    width: 70%;
+    margin-left:15%;
+
+}
+}
+
+
+
